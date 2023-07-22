@@ -1,0 +1,29 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx --cache .",
+    "clean": "npx lerna clean --yes && npx lerna exec \"rm -rf ./dist tsconfig.tsbuildinfo\" && rm -rf node_modules/",
+    "build": "tsc -b packages/sample-1",
+    "build:dist": "lerna run build:dist"
+  },
+  "devDependencies": {
+    "@types/bunyan": "^1.8.8",
+    "@types/node": "^20.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "lerna": "^7.1.4",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.15"
+  }
+}

@@ -1,0 +1,445 @@
+
+> sample-1@1.0.0 start
+> OTEL_SERVICE_NAME=sample-1 NODE_OPTIONS='--require ../tracing/dist/src/setup.js' ts-node src/index.ts
+
+@opentelemetry/api: Registered a global for diag v1.4.1.
+@opentelemetry/api: Registered a global for trace v1.4.1.
+@opentelemetry/api: Registered a global for context v1.4.1.
+@opentelemetry/api: Registered a global for propagation v1.4.1.
+@opentelemetry/api: Registered a global for metrics v1.4.1.
+aws-sdk instrumentation: applying patch to aws-sdk v3 constructStack
+@opentelemetry/instrumentation-http Applying patch for http@18.17.0
+@opentelemetry/instrumentation-http Applying patch for https@18.17.0
+aws-sdk instrumentation: applying patch to aws-sdk v3 client send
+{"name":"test","hostname":"rowboat","pid":129717,"level":30,"msg":"doing stuff","time":"2023-07-22T18:24:12.843Z","v":0,"trace_id":"4b4b24be4e7535fe6cdeb0d367254c8b","span_id":"ee5191c8fa3cbcca","trace_flags":"01"}
+EnvDetector found resource. Resource {
+  _attributes: { 'service.name': 'sample-1' },
+  asyncAttributesPending: false,
+  _syncAttributes: {},
+  _asyncAttributesPromise: Promise {
+    { 'service.name': 'sample-1' },
+    [Symbol(async_id_symbol)]: 145,
+    [Symbol(trigger_async_id_symbol)]: 0
+  }
+}
+ProcessDetector found resource. Resource {
+  _attributes: {
+    'process.pid': 129717,
+    'process.executable.name': 'node',
+    'process.executable.path': '/home/devin/.nvm/versions/node/v18.17.0/bin/node',
+    'process.command_args': [
+      '/home/devin/.nvm/versions/node/v18.17.0/bin/node',
+      '/home/devin/Projects/sample/node_modules/.bin/ts-node',
+      'src/index.ts'
+    ],
+    'process.runtime.version': '18.17.0',
+    'process.runtime.name': 'nodejs',
+    'process.runtime.description': 'Node.js',
+    'process.command': '/home/devin/Projects/sample/node_modules/.bin/ts-node',
+    'process.owner': 'devin'
+  },
+  asyncAttributesPending: false,
+  _syncAttributes: {},
+  _asyncAttributesPromise: Promise {
+    {
+      'process.pid': 129717,
+      'process.executable.name': 'node',
+      'process.executable.path': '/home/devin/.nvm/versions/node/v18.17.0/bin/node',
+      'process.command_args': [Array],
+      'process.runtime.version': '18.17.0',
+      'process.runtime.name': 'nodejs',
+      'process.runtime.description': 'Node.js',
+      'process.command': '/home/devin/Projects/sample/node_modules/.bin/ts-node',
+      'process.owner': 'devin'
+    },
+    [Symbol(async_id_symbol)]: 146,
+    [Symbol(trigger_async_id_symbol)]: 0
+  }
+}
+Instrumentation suppressed, returning Noop Span
+@opentelemetry/instrumentation-http https instrumentation outgoingRequest
+@opentelemetry/instrumentation-http http.ClientRequest return request
+@opentelemetry/instrumentation-http outgoingRequest on response()
+@opentelemetry/instrumentation-http outgoingRequest on end()
+@opentelemetry/instrumentation-http outgoingRequest on request close()
+Instrumentation suppressed, returning Noop Span
+@opentelemetry/instrumentation-http https instrumentation outgoingRequest
+@opentelemetry/instrumentation-http http.ClientRequest return request
+@opentelemetry/instrumentation-http outgoingRequest on response()
+@opentelemetry/instrumentation-http outgoingRequest on end()
+@opentelemetry/instrumentation-http outgoingRequest on request close()
+{"name":"test","hostname":"rowboat","pid":129717,"level":50,"err":{"message":"The specified bucket does not exist","name":"NoSuchBucket","stack":"NoSuchBucket: The specified bucket does not exist\n    at throwDefaultError (/home/devin/Projects/sample/node_modules/@aws-sdk/smithy-client/dist-cjs/default-error-handler.js:8:22)\n    at /home/devin/Projects/sample/node_modules/@aws-sdk/smithy-client/dist-cjs/default-error-handler.js:18:39\n    at de_GetBucketAclCommandError (/home/devin/Projects/sample/packages/sample-1/node_modules/@aws-sdk/client-s3/dist-cjs/protocols/Aws_restXml.js:3716:12)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async /home/devin/Projects/sample/node_modules/@aws-sdk/middleware-serde/dist-cjs/deserializerMiddleware.js:7:24\n    at async /home/devin/Projects/sample/packages/sample-1/node_modules/@aws-sdk/middleware-signing/dist-cjs/awsAuthMiddleware.js:14:20\n    at async /home/devin/Projects/sample/node_modules/@aws-sdk/middleware-retry/dist-cjs/retryMiddleware.js:27:46\n    at async /home/devin/Projects/sample/packages/sample-1/node_modules/@aws-sdk/middleware-logger/dist-cjs/loggerMiddleware.js:7:26"},"msg":"The specified bucket does not exist","time":"2023-07-22T18:24:13.588Z","v":0,"trace_id":"4b4b24be4e7535fe6cdeb0d367254c8b","span_id":"ee5191c8fa3cbcca","trace_flags":"01"}
+{"name":"test","hostname":"rowboat","pid":129717,"level":30,"msg":"done doing stuff","time":"2023-07-22T18:24:13.589Z","v":0,"trace_id":"4b4b24be4e7535fe6cdeb0d367254c8b","span_id":"ee5191c8fa3cbcca","trace_flags":"01"}
+shutdown started
+items to be sent [
+  Span {
+    attributes: {},
+    links: [],
+    events: [],
+    _droppedAttributesCount: 0,
+    _droppedEventsCount: 0,
+    _droppedLinksCount: 0,
+    status: { code: 0 },
+    endTime: [ 1690050252, 871970377 ],
+    _ended: true,
+    _duration: [ 0, 28970377 ],
+    name: 'doWork',
+    _spanContext: {
+      traceId: '4b4b24be4e7535fe6cdeb0d367254c8b',
+      spanId: '7b8d84e0b6295b55',
+      traceFlags: 1,
+      traceState: undefined
+    },
+    parentSpanId: 'ee5191c8fa3cbcca',
+    kind: 0,
+    _performanceStartTime: 2138.982332997024,
+    _performanceOffset: -0.601318359375,
+    _startTimeProvided: false,
+    startTime: [ 1690050252, 843000000 ],
+    resource: Resource {
+      _attributes: [Object],
+      asyncAttributesPending: false,
+      _syncAttributes: [Object],
+      _asyncAttributesPromise: [Promise]
+    },
+    instrumentationLibrary: { name: 'sample-1', version: undefined, schemaUrl: undefined },
+    _spanLimits: {
+      attributeValueLengthLimit: Infinity,
+      attributeCountLimit: 128,
+      linkCountLimit: 128,
+      eventCountLimit: 128,
+      attributePerEventCountLimit: 128,
+      attributePerLinkCountLimit: 128
+    },
+    _spanProcessor: MultiSpanProcessor { _spanProcessors: [Array] },
+    _attributeValueLengthLimit: Infinity
+  },
+  Span {
+    attributes: {},
+    links: [],
+    events: [],
+    _droppedAttributesCount: 0,
+    _droppedEventsCount: 0,
+    _droppedLinksCount: 0,
+    status: { code: 0 },
+    endTime: [ 1690050252, 872582608 ],
+    _ended: true,
+    _duration: [ 0, 20582608 ],
+    name: 'doWork',
+    _spanContext: {
+      traceId: '4b4b24be4e7535fe6cdeb0d367254c8b',
+      spanId: '7a61cbb080c667f5',
+      traceFlags: 1,
+      traceState: undefined
+    },
+    parentSpanId: 'ee5191c8fa3cbcca',
+    kind: 0,
+    _performanceStartTime: 2147.6556719988585,
+    _performanceOffset: -0.274658203125,
+    _startTimeProvided: false,
+    startTime: [ 1690050252, 852000000 ],
+    resource: Resource {
+      _attributes: [Object],
+      asyncAttributesPending: false,
+      _syncAttributes: [Object],
+      _asyncAttributesPromise: [Promise]
+    },
+    instrumentationLibrary: { name: 'sample-1', version: undefined, schemaUrl: undefined },
+    _spanLimits: {
+      attributeValueLengthLimit: Infinity,
+      attributeCountLimit: 128,
+      linkCountLimit: 128,
+      eventCountLimit: 128,
+      attributePerEventCountLimit: 128,
+      attributePerLinkCountLimit: 128
+    },
+    _spanProcessor: MultiSpanProcessor { _spanProcessors: [Array] },
+    _attributeValueLengthLimit: Infinity
+  },
+  Span {
+    attributes: {},
+    links: [],
+    events: [],
+    _droppedAttributesCount: 0,
+    _droppedEventsCount: 0,
+    _droppedLinksCount: 0,
+    status: { code: 0 },
+    endTime: [ 1690050252, 872725289 ],
+    _ended: true,
+    _duration: [ 0, 14725289 ],
+    name: 'doWork',
+    _spanContext: {
+      traceId: '4b4b24be4e7535fe6cdeb0d367254c8b',
+      spanId: 'd0f91fe2e54e49ed',
+      traceFlags: 1,
+      traceState: undefined
+    },
+    parentSpanId: 'ee5191c8fa3cbcca',
+    kind: 0,
+    _performanceStartTime: 2153.5284819975495,
+    _performanceOffset: -0.1474609375,
+    _startTimeProvided: false,
+    startTime: [ 1690050252, 858000000 ],
+    resource: Resource {
+      _attributes: [Object],
+      asyncAttributesPending: false,
+      _syncAttributes: [Object],
+      _asyncAttributesPromise: [Promise]
+    },
+    instrumentationLibrary: { name: 'sample-1', version: undefined, schemaUrl: undefined },
+    _spanLimits: {
+      attributeValueLengthLimit: Infinity,
+      attributeCountLimit: 128,
+      linkCountLimit: 128,
+      eventCountLimit: 128,
+      attributePerEventCountLimit: 128,
+      attributePerLinkCountLimit: 128
+    },
+    _spanProcessor: MultiSpanProcessor { _spanProcessors: [Array] },
+    _attributeValueLengthLimit: Infinity
+  },
+  Span {
+    attributes: {
+      'rpc.system': 'aws-api',
+      'rpc.method': 'ListBuckets',
+      'rpc.service': 'S3',
+      'aws.region': 'us-west-2',
+      'aws.request.id': 'TYGR5ACQ7D0YTHB5',
+      'http.status_code': 200,
+      'aws.request.extended_id': 'GqM+EGWTgZeFfErsuNk0XRNbLGt/DwMu5ffrRMAgEwP+IpJCqals16O4WCevdQ5FwDFQkCyi0ZxQspHxuVLuRw=='
+    },
+    links: [],
+    events: [],
+    _droppedAttributesCount: 0,
+    _droppedEventsCount: 0,
+    _droppedLinksCount: 0,
+    status: { code: 0 },
+    endTime: [ 1690050253, 259382944 ],
+    _ended: true,
+    _duration: [ 0, 389382944 ],
+    name: 'S3.ListBuckets',
+    _spanContext: {
+      traceId: '4b4b24be4e7535fe6cdeb0d367254c8b',
+      spanId: 'aa9c470304772528',
+      traceFlags: 1,
+      traceState: undefined
+    },
+    parentSpanId: '11d5794d3a8e3456',
+    kind: 2,
+    _performanceStartTime: 2165.98415800184,
+    _performanceOffset: -0.60302734375,
+    _startTimeProvided: false,
+    startTime: [ 1690050252, 870000000 ],
+    resource: Resource {
+      _attributes: [Object],
+      asyncAttributesPending: false,
+      _syncAttributes: [Object],
+      _asyncAttributesPromise: [Promise]
+    },
+    instrumentationLibrary: {
+      name: '@opentelemetry/instrumentation-aws-sdk',
+      version: '0.35.0',
+      schemaUrl: undefined
+    },
+    _spanLimits: {
+      attributeValueLengthLimit: Infinity,
+      attributeCountLimit: 128,
+      linkCountLimit: 128,
+      eventCountLimit: 128,
+      attributePerEventCountLimit: 128,
+      attributePerLinkCountLimit: 128
+    },
+    _spanProcessor: MultiSpanProcessor { _spanProcessors: [Array] },
+    _attributeValueLengthLimit: Infinity
+  },
+  Span {
+    attributes: {
+      bucketOwner: 'ec197be414fd7c26931e782d20f5c22addff100e50d852cfa89363de65ae8a58',
+      bucketCount: 6
+    },
+    links: [],
+    events: [],
+    _droppedAttributesCount: 0,
+    _droppedEventsCount: 0,
+    _droppedLinksCount: 0,
+    status: { code: 0 },
+    endTime: [ 1690050253, 260024953 ],
+    _ended: true,
+    _duration: [ 0, 397024953 ],
+    name: 'listBuckets',
+    _spanContext: {
+      traceId: '4b4b24be4e7535fe6cdeb0d367254c8b',
+      spanId: '11d5794d3a8e3456',
+      traceFlags: 1,
+      traceState: undefined
+    },
+    parentSpanId: 'ee5191c8fa3cbcca',
+    kind: 0,
+    _performanceStartTime: 2158.48559499532,
+    _performanceOffset: -0.1044921875,
+    _startTimeProvided: false,
+    startTime: [ 1690050252, 863000000 ],
+    resource: Resource {
+      _attributes: [Object],
+      asyncAttributesPending: false,
+      _syncAttributes: [Object],
+      _asyncAttributesPromise: [Promise]
+    },
+    instrumentationLibrary: { name: 'sample-1', version: undefined, schemaUrl: undefined },
+    _spanLimits: {
+      attributeValueLengthLimit: Infinity,
+      attributeCountLimit: 128,
+      linkCountLimit: 128,
+      eventCountLimit: 128,
+      attributePerEventCountLimit: 128,
+      attributePerLinkCountLimit: 128
+    },
+    _spanProcessor: MultiSpanProcessor { _spanProcessors: [Array] },
+    _attributeValueLengthLimit: Infinity
+  },
+  Span {
+    attributes: {
+      'rpc.system': 'aws-api',
+      'rpc.method': 'GetBucketAcl',
+      'rpc.service': 'S3',
+      'aws.region': 'us-west-2',
+      'aws.request.id': 'TYGZJ5151RSPEBDC'
+    },
+    links: [],
+    events: [ [Object] ],
+    _droppedAttributesCount: 0,
+    _droppedEventsCount: 0,
+    _droppedLinksCount: 0,
+    status: { code: 2, message: 'The specified bucket does not exist' },
+    endTime: [ 1690050253, 586380674 ],
+    _ended: true,
+    _duration: [ 0, 325380674 ],
+    name: 'S3.GetBucketAcl',
+    _spanContext: {
+      traceId: '4b4b24be4e7535fe6cdeb0d367254c8b',
+      spanId: 'b5bbee39abfa03dc',
+      traceFlags: 1,
+      traceState: undefined
+    },
+    parentSpanId: '595c87eff032615a',
+    kind: 2,
+    _performanceStartTime: 2557.069582000375,
+    _performanceOffset: -0.6884765625,
+    _startTimeProvided: false,
+    startTime: [ 1690050253, 261000000 ],
+    resource: Resource {
+      _attributes: [Object],
+      asyncAttributesPending: false,
+      _syncAttributes: [Object],
+      _asyncAttributesPromise: [Promise]
+    },
+    instrumentationLibrary: {
+      name: '@opentelemetry/instrumentation-aws-sdk',
+      version: '0.35.0',
+      schemaUrl: undefined
+    },
+    _spanLimits: {
+      attributeValueLengthLimit: Infinity,
+      attributeCountLimit: 128,
+      linkCountLimit: 128,
+      eventCountLimit: 128,
+      attributePerEventCountLimit: 128,
+      attributePerLinkCountLimit: 128
+    },
+    _spanProcessor: MultiSpanProcessor { _spanProcessors: [Array] },
+    _attributeValueLengthLimit: Infinity
+  },
+  Span {
+    attributes: {},
+    links: [],
+    events: [ [Object] ],
+    _droppedAttributesCount: 0,
+    _droppedEventsCount: 0,
+    _droppedLinksCount: 0,
+    status: { code: 2 },
+    endTime: [ 1690050253, 587751001 ],
+    _ended: true,
+    _duration: [ 0, 327751001 ],
+    name: 'expectBrokeBucket',
+    _spanContext: {
+      traceId: '4b4b24be4e7535fe6cdeb0d367254c8b',
+      spanId: '595c87eff032615a',
+      traceFlags: 1,
+      traceState: undefined
+    },
+    parentSpanId: 'ee5191c8fa3cbcca',
+    kind: 0,
+    _performanceStartTime: 2555.6270060017705,
+    _performanceOffset: -0.245849609375,
+    _startTimeProvided: false,
+    startTime: [ 1690050253, 260000000 ],
+    resource: Resource {
+      _attributes: [Object],
+      asyncAttributesPending: false,
+      _syncAttributes: [Object],
+      _asyncAttributesPromise: [Promise]
+    },
+    instrumentationLibrary: { name: 'sample-1', version: undefined, schemaUrl: undefined },
+    _spanLimits: {
+      attributeValueLengthLimit: Infinity,
+      attributeCountLimit: 128,
+      linkCountLimit: 128,
+      eventCountLimit: 128,
+      attributePerEventCountLimit: 128,
+      attributePerLinkCountLimit: 128
+    },
+    _spanProcessor: MultiSpanProcessor { _spanProcessors: [Array] },
+    _attributeValueLengthLimit: Infinity
+  },
+  Span {
+    attributes: {},
+    links: [],
+    events: [],
+    _droppedAttributesCount: 0,
+    _droppedEventsCount: 0,
+    _droppedLinksCount: 0,
+    status: { code: 0 },
+    endTime: [ 1690050253, 589396817 ],
+    _ended: true,
+    _duration: [ 0, 747396817 ],
+    name: 'main',
+    _spanContext: {
+      traceId: '4b4b24be4e7535fe6cdeb0d367254c8b',
+      spanId: 'ee5191c8fa3cbcca',
+      traceFlags: 1,
+      traceState: undefined
+    },
+    parentSpanId: undefined,
+    kind: 0,
+    _performanceStartTime: 2137.4901579990983,
+    _performanceOffset: -0.109130859375,
+    _startTimeProvided: false,
+    startTime: [ 1690050252, 842000000 ],
+    resource: Resource {
+      _attributes: [Object],
+      asyncAttributesPending: false,
+      _syncAttributes: [Object],
+      _asyncAttributesPromise: [Promise]
+    },
+    instrumentationLibrary: { name: 'sample-1', version: undefined, schemaUrl: undefined },
+    _spanLimits: {
+      attributeValueLengthLimit: Infinity,
+      attributeCountLimit: 128,
+      linkCountLimit: 128,
+      eventCountLimit: 128,
+      attributePerEventCountLimit: 128,
+      attributePerLinkCountLimit: 128
+    },
+    _spanProcessor: MultiSpanProcessor { _spanProcessors: [Array] },
+    _attributeValueLengthLimit: Infinity
+  }
+]
+Instrumentation suppressed, returning Noop Span
+@opentelemetry/instrumentation-http http instrumentation outgoingRequest
+@opentelemetry/instrumentation-http http.ClientRequest return request
+@opentelemetry/instrumentation-http outgoingRequest on response()
+@opentelemetry/instrumentation-http outgoingRequest on end()
+statusCode: 200 
+ 
+shutdown started
+@opentelemetry/instrumentation-http outgoingRequest on request close()

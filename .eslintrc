@@ -1,0 +1,8 @@
+{
+    "ignorePatterns": ["node_modules/", "dist/"],
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "project": "./tsconfig.json",
+        "tsconfigRootDir": "."
+    }
+}

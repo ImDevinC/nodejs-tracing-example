@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "target": "ES2021",
+        "lib": ["ES2021", "DOM"],
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "noUnusedLocals": true,
+        "pretty": true,
+        "esModuleInterop": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "allowJs": false
+    }
+}
