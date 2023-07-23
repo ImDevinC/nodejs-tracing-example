@@ -4,12 +4,12 @@ import {
   getActiveSpan,
   withObservabilityFunction,
 } from '../../tracing/dist/src/spans';
-import { meter } from '../../tracing/dist/src/metrics';
 import {
   GetBucketAclCommand,
   ListBucketsCommand,
   S3Client,
 } from '@aws-sdk/client-s3';
+import { createCounter } from '../../tracing/dist/src/metrics';
 
 const logger = new Logger({
   name: 'test',
@@ -42,7 +42,7 @@ const mainWork = withObservabilityFunction({
 const doWork = withObservabilityFunction({
   spanName: 'doWork',
   run: async (i: number) => {
-    const counter = meter.createCounter('counter', {
+    const counter = createCounter('counter', {
       description: 'Example counter',
     });
     counter.add(1);

@@ -16,6 +16,15 @@ export declare type ObservabilityFunction<
   Result = any,
 > = (...params: Parameters) => Promise<Result>;
 
+/**
+ * @param spanName the name of the span, be sure to check
+ * https://opentelemetry.io/docs/specs/otel/trace/semantic_conventions/
+ * for common naming conventions
+ * @param [attributes] map of attributes to attach to the span
+ * @param [parentContext] the root parent context, this is usually
+ * not needed unless you are build a new parent from another
+ * @param run the function to be wrapped
+ */
 export type WithObservabilityOptions = {
   spanName: string;
   attributes?: Attributes;
@@ -33,6 +42,13 @@ const handleWrappedSpanError = (options: WrappedSpanErrorOptions, err: any) => {
   span.recordException(err);
 };
 
+/**
+ * Creates a new promise that wraps the function
+ * specified in `options.run` field in a span.start()
+ * and spand.end(), allowing it to be traced.
+ * @param options the options to pass to the span
+ * @returns Promise<any>
+ */
 export const withObservabilityFunction = <
   Parameters extends Array<any> = Array<any>,
   Result = any,
@@ -84,6 +100,9 @@ const processAttributes = (
   return sanitizeAttributes(attributes);
 };
 
+/**
+ * Gets the span from the current context, if one exists.
+ */
 export const getActiveSpan = () => {
   return getActiveOtelSpan();
 };
