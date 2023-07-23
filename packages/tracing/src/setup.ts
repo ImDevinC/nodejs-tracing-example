@@ -4,10 +4,15 @@ import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentation
 import { PeriodicExportingMetricReader } from '@opentelemetry/sdk-metrics';
 import { BatchSpanProcessor } from '@opentelemetry/sdk-trace-node';
 import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-proto';
+import { diag } from '@opentelemetry/api';
 
 const traceExporter = new OTLPTraceExporter();
 const spanProcessor = new BatchSpanProcessor(traceExporter);
 const metricExporter = new OTLPMetricExporter();
+
+const rawMetricsTimeout =
+  process.env.OTEL_EXPORTER_OTLP_METRICS_TIMEOUT ?? '1000';
+const metricsTimeout = parseInt(rawMetricsTimeout) || 1000;
 
 const sdk = new NodeSDK({
   serviceName: process.env.OTEL_SERVICE_NAME,
@@ -15,7 +20,7 @@ const sdk = new NodeSDK({
   spanProcessor: spanProcessor,
   metricReader: new PeriodicExportingMetricReader({
     exporter: metricExporter,
-    exportIntervalMillis: 1000,
+    exportTimeoutMillis: metricsTimeout,
   }),
   instrumentations: [
     getNodeAutoInstrumentations({
@@ -33,6 +38,20 @@ const sdk = new NodeSDK({
 
 sdk.start();
 
+/**
+ * stops the active SDK, including tracing and
+ * metrics. Depending on items in the queue, this could
+ * take extended time.
+ * This function should not throw an error but rather
+ * catches the error and prints it to the console.
+ */
 export const shutdown = async () => {
-  await sdk.shutdown();
+  await sdk.shutdown().catch((err) =>
+    diag.error(
+      JSON.stringify({
+        message: 'failed to shutdown tracing SDK',
+        error: err,
+      }),
+    ),
+  );
 };

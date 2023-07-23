@@ -28,6 +28,10 @@ const mainWork = withObservabilityFunction({
     for (let i = 0; i < 3; i += 1) {
       doWork(i);
     }
+    const counter = createCounter('counter', {
+      description: 'Example counter',
+    });
+    counter.add(1);
     await listBuckets();
     try {
       await expectBrokeBucket();
@@ -42,10 +46,6 @@ const mainWork = withObservabilityFunction({
 const doWork = withObservabilityFunction({
   spanName: 'doWork',
   run: async (i: number) => {
-    const counter = createCounter('counter', {
-      description: 'Example counter',
-    });
-    counter.add(1);
     for (let i = 0; i <= Math.floor(Math.random() * 40000000); i += 1) {}
   },
 });
