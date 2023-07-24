@@ -31,6 +31,9 @@ const sdk = new NodeSDK({
         enabled: true,
         suppressInternalInstrumentation: true,
       },
+      '@opentelemetry/instrumentation-dns': {
+        enabled: false,
+      },
     }),
   ],
   autoDetectResources: true,

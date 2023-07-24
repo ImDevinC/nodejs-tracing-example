@@ -9,8 +9,7 @@
   "scripts": {
     "lint": "eslint --ext .ts,.tsx,.js,.jsx --cache .",
     "clean": "npx lerna clean --yes && npx lerna exec \"rm -rf ./dist tsconfig.tsbuildinfo\" && rm -rf node_modules/",
-    "build": "tsc -b packages/sample-1",
-    "build:dist": "lerna run build:dist"
+    "build": "lerna run build"
   },
   "devDependencies": {
     "@types/bunyan": "^1.8.8",
